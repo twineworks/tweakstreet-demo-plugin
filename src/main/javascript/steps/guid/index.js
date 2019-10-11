@@ -22,12 +22,6 @@ const extension = {
         value: { type: "result", name: "uuid" }
       }
     ]
-  },
-  layout: {
-    children: [
-      { id: "resultVariables" },
-      { id: "outputFields" }
-    ]
   }
 };
 

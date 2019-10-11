@@ -28,6 +28,7 @@ public final class GuidStep extends BasePassThroughStep implements PassThroughSt
 
     // a value provider is a one-method interface that can
     // be implemented as an inline closure
+    // it supplies the value of a result to the engine
     providers.put("uuid", () -> Values.make(uuid.toString()));
 
     return providers;
