@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Guid Step Doc</title>
+
+    <link href="./../../docs/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+  <body class="py-4">
+    <div class="container">
+
+    <h2>Write Properties Step</h2>
+
+    <p>Writes a dict value into a <a href="https://en.wikipedia.org/wiki/.properties">properties</a> file</p>
+
+    <p>Each entry in the dict is written to the properties file as a key-value pair</p>
+
+    <ul>
+        <li>nil values are written as empty values</li>
+        <li>non-string values are cast to string</li>
+        <li>if a non-string values cannot be cast to string, the result of <a href="https://twineworks.github.io/tweakflow/modules/std.html#core-inspect">core.inspect(value)</a> is written instead</li>
+    </ul>
+
+  </div>
+</body>
+</html>
