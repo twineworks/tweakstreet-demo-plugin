@@ -69,7 +69,7 @@ public final class WritePropertiesStep extends BasePassThroughStep implements Pa
       // if a relative file is given, it is resolved relative to the flow path and and normalized
       String fileName = fs.relNorm(hub.getFlowInfo().getFlowPath(), s.file);
 
-      try(BufferedWriter writer = fs.newBufferedWriter(fileName, s.charset, WriteOpenExistingOption.TRUNCATE)){
+      try(BufferedWriter writer = fs.newBufferedWriter(fileName, s.charset, 64*1024, WriteOpenExistingOption.TRUNCATE)){
         p.store(writer, s.comment);
       }
 
