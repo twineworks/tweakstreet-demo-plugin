@@ -6,7 +6,7 @@ import com.twineworks.tweakflow.lang.values.ValueProvider;
 import com.twineworks.tweakflow.lang.values.Values;
 import com.twineworks.tweakstreet.api.steps.BasePassThroughStep;
 import com.twineworks.tweakstreet.api.steps.PassThroughStep;
-import com.twineworks.tweakstreet.api.steps.results.ResultDesc;
+import com.twineworks.tweakstreet.api.desc.results.ResultDesc;
 
 import java.util.*;
 

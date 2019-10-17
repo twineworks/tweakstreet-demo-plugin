@@ -7,9 +7,9 @@ import com.twineworks.tweakflow.lang.values.*;
 import com.twineworks.tweakstreet.api.fs.FileSystemConnection;
 import com.twineworks.tweakstreet.api.steps.BaseReadFieldsStep;
 import com.twineworks.tweakstreet.api.steps.ReadFieldsStep;
-import com.twineworks.tweakstreet.api.steps.mappings.MappingDesc;
-import com.twineworks.tweakstreet.api.steps.results.ResultDesc;
-import com.twineworks.tweakstreet.api.steps.settings.SettingDesc;
+import com.twineworks.tweakstreet.api.desc.mappings.Mapping;
+import com.twineworks.tweakstreet.api.desc.results.ResultDesc;
+import com.twineworks.tweakstreet.api.desc.settings.SettingDesc;
 
 import java.io.IOException;
 import java.util.*;
@@ -28,13 +28,15 @@ public final class ReadXBaseStep extends BaseReadFieldsStep implements ReadField
   private int[] mappedIndexes;
   private Value[] rowValues;
 
+  static final List<SettingDesc> declaredSettings = Arrays.asList(
+    new SettingDesc("fs"),
+    new SettingDesc("file"),
+    new SettingDesc("charset")
+  );
+
   @Override
   public List<SettingDesc> getDeclaredSettings() {
-    return Arrays.asList(
-      new SettingDesc("fs"),
-      new SettingDesc("file"),
-      new SettingDesc("charset")
-    );
+    return declaredSettings;
   }
 
   @Override
@@ -74,7 +76,7 @@ public final class ReadXBaseStep extends BaseReadFieldsStep implements ReadField
   }
 
   @Override
-  public void open(List<MappingDesc> mappings) {
+  public void open(List<Mapping> mappings) {
     try {
 
       s.update();
@@ -82,12 +84,12 @@ public final class ReadXBaseStep extends BaseReadFieldsStep implements ReadField
       if (fs == null || s.fsSetting.hasChanged()) {
         closeFile();
         closeFs();
-        fs = hub.fileSystemConnection(s.fs);
+        fs = context.fileSystemConnection(s.fs);
       }
 
       if (s.fsSetting.hasChanged() || dbf == null || s.fileSetting.hasChanged()) {
         closeFile();
-        String filePath = fs.relNorm(hub.getFlowInfo().getFlowPath(), s.file);
+        String filePath = fs.relNorm(context.getFlowInfo().getFlowPath(), s.file);
         int bufferSize = 64 * 1024;
 
         dbf = new DBFReader(fs.newInputStream(filePath, bufferSize), s.charset, Boolean.FALSE);
@@ -115,7 +117,7 @@ public final class ReadXBaseStep extends BaseReadFieldsStep implements ReadField
         mappedIndexes = new int[mappings.size()];
 
         for (int i = 0; i < mappings.size(); i++) {
-          MappingDesc m = mappings.get(i);
+          Mapping m = mappings.get(i);
           if (m.mapping.isString()) {
             Integer idx = fieldsByName.get(m.mapping.string());
             mappedIndexes[i] = idx != null ? idx : -1;
@@ -137,7 +139,7 @@ public final class ReadXBaseStep extends BaseReadFieldsStep implements ReadField
     } catch (IOException e) {
       closeFile();
       closeFs();
-      throw new RuntimeException(e.getMessage(), e);
+      throw new RuntimeException(e);
     }
   }
 

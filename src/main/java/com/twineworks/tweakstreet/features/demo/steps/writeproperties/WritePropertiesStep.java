@@ -9,7 +9,7 @@ import com.twineworks.tweakstreet.api.fs.FileSystemConnection;
 import com.twineworks.tweakstreet.api.fs.WriteOpenExistingOption;
 import com.twineworks.tweakstreet.api.steps.BasePassThroughStep;
 import com.twineworks.tweakstreet.api.steps.PassThroughStep;
-import com.twineworks.tweakstreet.api.steps.settings.SettingDesc;
+import com.twineworks.tweakstreet.api.desc.settings.SettingDesc;
 
 import java.io.BufferedWriter;
 import java.util.Arrays;
@@ -64,17 +64,17 @@ public final class WritePropertiesStep extends BasePassThroughStep implements Pa
     }
 
     // write out the file
-    try (FileSystemConnection fs = hub.fileSystemConnection(s.fs)) {
+    try (FileSystemConnection fs = context.fileSystemConnection(s.fs)) {
 
       // if a relative file is given, it is resolved relative to the flow path and and normalized
-      String fileName = fs.relNorm(hub.getFlowInfo().getFlowPath(), s.file);
+      String fileName = fs.relNorm(context.getFlowInfo().getFlowPath(), s.file);
 
       try(BufferedWriter writer = fs.newBufferedWriter(fileName, s.charset, 64*1024, WriteOpenExistingOption.TRUNCATE)){
         p.store(writer, s.comment);
       }
 
     } catch (Exception e) {
-      throw new RuntimeException(e.getMessage(), e);
+      throw new RuntimeException(e);
     }
   }
 
