@@ -8,7 +8,7 @@ const extension = {
   description: "Generates a type 4 UUID",
   icon: "steps/guid/icon.svg",
   docs: "steps/guid/docs.html",
-  colorCode: "branch",
+  colorCode: "computation",
   settings: [
   ],
   results: [

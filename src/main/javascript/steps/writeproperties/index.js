@@ -8,6 +8,7 @@ const extension = {
   description: "Writes a dict value to a properties file",
   icon: "steps/writeproperties/icon.svg",
   docs: "steps/writeproperties/docs.html",
+  colorCode: "io_write",
   settings: [
     {
       id: "fs",

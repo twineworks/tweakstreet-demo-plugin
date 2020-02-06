@@ -7,7 +7,7 @@ const extension = {
   name: "Read XBase file",
   description: "reads records from an XBase file (.dbf) ",
   icon: "steps/readxbase/icon.svg",
-  // colorCode: "branch",
+  colorCode: "io_read",
   settings: [
     {
       id: "fs",
