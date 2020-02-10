@@ -6,7 +6,7 @@
 
     <groupId>com.twineworks</groupId>
     <artifactId>tweakstreet-demo-plugin</artifactId>
-    <version>0.0.48</version>
+    <version>0.0.49-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <build>
@@ -112,7 +112,7 @@
         <dependency>
             <groupId>com.twineworks</groupId>
             <artifactId>tweakstreet-api</artifactId>
-            <version>0.0.48</version>
+            <version>0.0.49-SNAPSHOT</version>
         </dependency>
 
         <!-- xbase file reader -->
