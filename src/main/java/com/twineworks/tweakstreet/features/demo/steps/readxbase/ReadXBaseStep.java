@@ -79,15 +79,18 @@ public final class ReadXBaseStep extends BaseReadFieldsStep implements ReadField
   public void open(List<Mapping> mappings) {
     try {
 
+      boolean fsHasChanged = s.fsSetting.hasChanged();
+      boolean fileHasChanged = s.fileSetting.hasChanged();
+
       s.update();
 
-      if (fs == null || s.fsSetting.hasChanged()) {
+      if (fsHasChanged) {
         closeFile();
         closeFs();
         fs = context.fileSystemConnection(s.fs);
       }
 
-      if (s.fsSetting.hasChanged() || dbf == null || s.fileSetting.hasChanged()) {
+      if (fsHasChanged || fileHasChanged) {
         closeFile();
         String filePath = fs.relNorm(context.getFlowInfo().getFlowPath(), s.file);
         int bufferSize = 64 * 1024;
