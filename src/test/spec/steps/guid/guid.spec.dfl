@@ -1,12 +1,6 @@
 {
   "type": "data-flow",
   "properties": {
-    "editor": {
-      "showParameters": true,
-      "showVariables": true,
-      "showServices": true,
-      "showImports": true
-    },
     "imports": {
       "code": "# import the standard library\nimport core, data, strings, time, math, fun, locale, regex, bin, decimals from 'std';\n",
       "size": {
@@ -192,9 +186,9 @@
         "collatedGroups": {
           "widgetType": "expression/checkbox-boolean",
           "widgetData": {
-            "value": false
+            "value": true
           },
-          "code": "false"
+          "code": "true"
         },
         "aggregationFields": {
           "aggregationFields": {
@@ -317,7 +311,7 @@
             "text": "if data.size(in.distinct_guids) == 100 then 'yes' else 'no'",
             "size": {
               "width": 0,
-              "height": 32
+              "height": 36
             },
             "syntax": "tweakflow"
           },
