@@ -5,6 +5,7 @@ const extension = {
   type: "step",
   stepType: "passthrough",
   name: "Write Properties",
+  category: "Files",
   description: "Writes a dict value to a properties file",
   icon: "steps/writeproperties/icon.svg",
   docs: "steps/writeproperties/docs.html",

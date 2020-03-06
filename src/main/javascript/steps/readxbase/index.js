@@ -5,6 +5,7 @@ const extension = {
   type: "step",
   stepType: "readFields",
   name: "Read XBase file",
+  category: "Files",
   description: "reads records from an XBase file (.dbf) ",
   icon: "steps/readxbase/icon.svg",
   colorCode: "io_read",

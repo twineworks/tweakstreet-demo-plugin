@@ -5,6 +5,7 @@ const extension = {
   type: "step",
   stepType: "passthrough",
   name: "GUID",
+  category: "Utility",
   description: "Generates a type 4 UUID",
   icon: "steps/guid/icon.svg",
   docs: "steps/guid/docs.html",
