@@ -10,6 +10,4 @@ Copy this folder to your `$HOME/.tweakstreet/plugins/` directory
 
 Restart tweakstreet and you can start using the contained extensions:
 
-  - guid step: minimal example of a step
   - write properties step: step using settings and the filesystem abstraction
-  - read xbase step: step reading an xbase file using [javadbf](https://github.com/albfernandez/javadbf)
