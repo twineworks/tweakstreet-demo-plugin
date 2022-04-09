@@ -6,7 +6,7 @@
 
     <groupId>com.twineworks</groupId>
     <artifactId>tweakstreet-demo-plugin</artifactId>
-    <version>1.19.11</version>
+    <version>1.19.12-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <build>
@@ -109,7 +109,7 @@
         <dependency>
             <groupId>com.twineworks</groupId>
             <artifactId>tweakstreet-api</artifactId>
-            <version>1.19.11</version>
+            <version>1.19.12-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
